@@ -1,0 +1,23 @@
+{
+  "name": "Neon-School-Forum-API",
+  "version": "1.0.0",
+  "description": "Neon School Forum API",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "bugs": {
+    "url": "https://github.com/seunmeme/NaijaHacks2019-Neon-School-Forum/issues"
+  },
+  "homepage": "https://github.com/seunmeme/NaijaHacks2019-Neon-School-Forum#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seunmeme/NaijaHacks2019-Neon-School-Forum.git"
+  },
+  "keywords": [
+    "Education",
+    "Collaboraboration"
+  ],
+  "author": "Seun Odewale, Tejiri Matthew, Lucky Oniovosa, Ichoku Chinonso",
+  "license": "MIT"
+}
