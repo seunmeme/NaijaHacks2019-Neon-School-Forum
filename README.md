@@ -41,7 +41,7 @@ improve education in Nigeria.
 ### Clone the repository 
 
 ```
-git clone hhttps://github.com/seunmeme/Neon_School_Forum.git
+git clone hhttps://github.com/seunmeme/NaijaHacks2019-Neon-School-Forum.git
 ```
 
 ### Install all dependencies
