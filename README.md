@@ -7,7 +7,7 @@
 - Tejiri MAtthew, tejirimatthew4@gmail.com
 - Lucky Oniovosa, lumpsey@gmail.com
 - Seun Odewale, seunodewale.zone5@gmail.com
-- Ichoku Chinonso
+- Ichoku Chinonso, greatchinonso7@gmail.com
 
 
 # Problem
