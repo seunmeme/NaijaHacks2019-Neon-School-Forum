@@ -7,6 +7,7 @@
 - Tejiri MAtthew, tejirimatthew4@gmail.com
 - Lucky Oniovosa, lumpsey@gmail.com
 - Seun Odewale, seunodewale.zone5@gmail.com
+- Ichoku Chinonso
 
 
 # Problem
@@ -25,10 +26,7 @@ Postgres (with Sequelize), Express, ReactJs, Node.
 
 - To provide a local connect among the above entities so as to
 improve education in Nigeria.
-- A good resource for students to find where to learn and who to learn from and also for parent to find instructors/teachers for their kids.
-- Provide revenue for instructors/tutorial centers/work-space owners.
-- Reduce rate of unemployment in Nigeria.
-
+- A good resource for students to find where to learn and who to learn from.
 
 # Top-level directory layout
 
