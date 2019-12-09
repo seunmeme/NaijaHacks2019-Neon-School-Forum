@@ -2,9 +2,9 @@
   "name": "Neon-School-Forum-API",
   "version": "1.0.0",
   "description": "Neon School Forum API",
-  "main": "./api/app.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node ./api/app.js",
+    "dev": "nodemon --exec babel-node app.js",
     "test": "npm test"
   },
   "bugs": {

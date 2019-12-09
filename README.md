@@ -53,12 +53,18 @@ npm install
 ```
 
 
-### Start the development server to serve static files and connect to database
+### Start the development server to test API Endpoints
 
 Using npm
 
 ```
-npm run serve
+cd Server
+```
+```
+npm i -g nodemon
+```
+```
+npm run dev
 ```
 
 ### Start project to test from the browser
