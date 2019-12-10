@@ -41,8 +41,18 @@ improve education in Nigeria.
 ### Clone the repository 
 
 ```
-git clone hhttps://github.com/seunmeme/NaijaHacks2019-Neon-School-Forum.git
+git clone https://github.com/seunmeme/NaijaHacks2019-Neon-School-Forum.git
 ```
+
+### API Endpoints
+
+| HTTP VERB     | ENDPOINT                                                       | FUNCTIONALITY                  |
+| ------------- |----------------------------------------------------------------| ------------------------------|
+| POST          | /api/v1/neonSchoolForum/register                               | Ceate new user         |
+| POST          | /api/v1/neonSchoolForum/login                                  | Users login    |
+| POST          | /api/v1/neonSchoolForum/users/:userId/topics                   | Create a new topic    |
+| GET           | /api/v1/neonSchoolForum/topics                                 | Get all topics    |
+| POST          | /api/v1/neonSchoolForum/users/:userId/topics/:topicId/comments | Add a new comment |
 
 ### Install all dependencies
 
