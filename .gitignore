@@ -1,5 +1,6 @@
 .DS_STORE
-node_modules
+Server/node_modules
+Server/.env
 scripts/flow/*/.flowconfig
 *~
 *.pyc
