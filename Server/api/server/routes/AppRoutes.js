@@ -11,6 +11,7 @@ router.post('/login', UserController.login);
 router.post('/users/:userId/topics', auth, TopicController.createTopic);
 router.get('/topics', TopicController.getAllTopics);
 router.get('/topics/:topicId', TopicController.getSingleTopic);
+router.get('/topics/:page/:pageSize', TopicController.getPaginatedTopics);
 router.post('/users/:userId/topics/:topicId/comments', auth, CommentController.addComment);
 
 

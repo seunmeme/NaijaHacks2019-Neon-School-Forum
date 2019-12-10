@@ -39,6 +39,23 @@ class TopicController {
         }
       }
 
+    static async getPaginatedTopics(req, res) {
+      const { page } = req.params;
+      const { pageSize } = req.params;
+        try {
+          const pageTopics = await TopicService.getPaginatedTopics(page, pageSize);
+          if (pageTopics.length > 0) {
+            util.setSuccess(200, 'Topics retrieved', pageTopics);
+          } else {
+            util.setSuccess(200, 'No Topic found');
+          }
+          return util.send(res);
+        } catch (error) {
+          util.setError(400, error.message);
+          return util.send(res);
+        }
+      }
+
     static async getSingleTopic(req, res) {
         const { topicId } = req.params;
     
@@ -57,7 +74,7 @@ class TopicController {
           }
           return util.send(res);
         } catch (error) {
-          util.setError(404, error);
+          util.setError(404, error.message);
           return util.send(res);
         }
       }

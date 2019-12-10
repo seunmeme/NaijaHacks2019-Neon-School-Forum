@@ -3,7 +3,24 @@ import database from '../src/models';
 class TopicService {
   static async getAllTopics() {
     try {
-      return await database.Topic.findAll();
+      return await database.Topic.findAll({
+        order: [['createdAt', 'DESC']]
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async getPaginatedTopics(page, pageSize) {
+    const realPage = page - 1;
+    const offset = (realPage) * pageSize;
+    const limit = pageSize;
+    try {
+      return await database.Topic.findAll({
+        limit,
+        offset,
+        order: [['createdAt', 'DESC']]
+      });
     } catch (error) {
       throw error;
     }
@@ -37,7 +54,7 @@ class TopicService {
   static async getSingleTopic(id) {
     try {
       const theTopic = await database.Topic.findOne({
-        where: { id }
+        where: { id },
       });
 
       return theTopic;
