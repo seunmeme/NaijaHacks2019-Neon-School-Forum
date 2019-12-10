@@ -8,6 +8,7 @@ const router = Router();
 router.post('/register', UserController.register);
 router.post('/login', UserController.login);
 router.post('/users/:userId/topic', auth, TopicController.createTopic);
+router.get('/topics', TopicController.getAllTopics);
 
 
 export default router;

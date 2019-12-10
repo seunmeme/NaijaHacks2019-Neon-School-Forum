@@ -15,12 +15,28 @@ class TopicController {
           const newTopic = {...req.body, userId: req.params.userId};
           try {
             const createdTopic = await TopicService.addTopic(newTopic);
-            util.setSuccess(201, 'Topic Added!', createdTopic);
+            const user = req.user
+            util.setSuccess(201, 'Topic Added!', {createdTopic, user});
             return util.send(res);
           } catch (error) {
             util.setError(400, error.message);
             return util.send(res);
           }
+      }
+
+    static async getAllTopics(req, res) {
+        try {
+          const allTopics = await TopicService.getAllTopics();
+          if (allTopics.length > 0) {
+            util.setSuccess(200, 'Topics retrieved', allTopics);
+          } else {
+            util.setSuccess(200, 'No Topic found');
+          }
+          return util.send(res);
+        } catch (error) {
+          util.setError(400, error.message);
+          return util.send(res);
+        }
       }
 
   static async updateTopic(req, res) {
