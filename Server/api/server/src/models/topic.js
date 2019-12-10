@@ -1,4 +1,4 @@
-'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   const Topic = sequelize.define('Topic', {
     title: {
@@ -16,6 +16,13 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
   }, {});
+
+  Topic.associate = (models) => {
+    Topic.hasMany(models.Comment, {
+      foreignKey: 'topicId',
+      as: 'comments',
+    });
+  };
 
   Topic.associate = (models) => {
     Topic.belongsTo(models.User, {

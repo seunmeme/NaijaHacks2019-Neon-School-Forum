@@ -52,7 +52,7 @@ class TopicService {
 
       if (topicToDelete) {
         const deletedTopic = await database.Topic.destroy({
-          where: { email }
+          where: { id }
         });
         return deletedTopic;
       }
