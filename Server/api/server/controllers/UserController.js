@@ -25,7 +25,7 @@ class UserController {
     //   console.log(newUser);
       const token = jwt.sign({createdUser}, process.env.SECRET_KEY);
             res.header('auth-token', token)
-            util.setSuccess(201, 'User Registered!', createdUser);
+            util.setSuccess(201, 'User Registered!', token);
             return util.send(res);
     } catch (error) {
       util.setError(400, error.message);
@@ -58,7 +58,7 @@ class UserController {
         }else{
           const token = jwt.sign({theUser}, process.env.SECRET_KEY);
             res.header('auth-token', token)
-            util.setSuccess(200, 'User Logged in successfully!', theUser);
+            util.setSuccess(200, 'User Logged in successfully!', token);
         }
 
       return util.send(res);

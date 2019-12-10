@@ -39,6 +39,29 @@ class TopicController {
         }
       }
 
+    static async getSingleTopic(req, res) {
+        const { topicId } = req.params;
+    
+        if (!Number(topicId)) {
+          util.setError(400, 'Please input a valid numeric value');
+          return util.send(res);
+        }
+    
+        try {
+          const theTopic = await TopicService.getSingleTopic( topicId );
+    
+          if (!theTopic) {
+            util.setError(404, `Cannot find topic with the id ${topicId}`);
+          } else {
+            util.setSuccess(200, 'Found Topic', theTopic);
+          }
+          return util.send(res);
+        } catch (error) {
+          util.setError(404, error);
+          return util.send(res);
+        }
+      }
+
   static async updateTopic(req, res) {
     const alteredTopic = req.body;
     const { topicId } = req.params;
