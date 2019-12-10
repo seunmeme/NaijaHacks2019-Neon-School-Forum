@@ -53,12 +53,12 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  // User.associate = (models) => {
-  //   User.hasMany(models.post, {
-  //     foreignKey: 'userId',
-  //     as: 'post',
-  //   });
-  // };
+  User.associate = (models) => {
+    User.hasMany(models.Topic, {
+      foreignKey: 'userId',
+      as: 'topics',
+    });
+  };
 
   User.beforeCreate((user, options) => {
     const salt = bcrypt.genSaltSync(10);

@@ -4,6 +4,7 @@
   "description": "Neon School Forum API",
   "main": "app.js",
   "scripts": {
+    "start": "babel-node app.js",
     "dev": "nodemon --exec babel-node app.js",
     "test": "npm test"
   },
