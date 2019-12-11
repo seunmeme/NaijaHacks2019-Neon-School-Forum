@@ -31,8 +31,8 @@ improve education in Nigeria.
 # Top-level directory layout
 
     .
-    ├── UI                         # Front End
-    ├── Server                     # Backend
+    ├── frontend                        # Front End
+    ├── Server                          # Backend
     └── README.md   
 
 
