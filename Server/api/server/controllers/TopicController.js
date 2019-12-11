@@ -8,7 +8,7 @@ class TopicController {
 
     static async createTopic(req, res) {
 
-        if ( !req.body.title || !req.body.content) {
+        if ( !req.body.title || !req.body.content || !req.body.category) {
             util.setError(400, 'Please provide complete details');
             return util.send(res);
           }
@@ -71,6 +71,24 @@ class TopicController {
             util.setError(404, `Cannot find topic with the id ${topicId}`);
           } else {
             util.setSuccess(200, 'Found Topic', theTopic);
+          }
+          return util.send(res);
+        } catch (error) {
+          util.setError(404, error.message);
+          return util.send(res);
+        }
+      }
+
+    static async getTopicsByCategory(req, res) {
+        const { category } = req.params;
+    
+        try {
+          const topics = await TopicService.getTopicsByCategory( category );
+    
+          if (topics.length < 1) {
+            util.setError(404, `Cannot find topic with the category ${category}`);
+          } else {
+            util.setSuccess(200, 'Found Topics', topics);
           }
           return util.send(res);
         } catch (error) {

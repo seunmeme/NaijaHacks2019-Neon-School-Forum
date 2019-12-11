@@ -15,12 +15,27 @@ module.exports = (sequelize, DataTypes) => {
         len: [2]
       }
     },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    label: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   }, {});
 
   Topic.associate = (models) => {
     Topic.hasMany(models.Comment, {
       foreignKey: 'topicId',
       as: 'comments',
+    });
+  };
+
+  Topic.associate = (models) => {
+    Topic.hasMany(models.Like, {
+      foreignKey: 'topicId',
+      as: 'likes',
     });
   };
 

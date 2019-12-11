@@ -11,6 +11,16 @@ class TopicService {
     }
   }
 
+  static async getTopicsByCategory(category) {
+    try {
+      return await database.Topic.findAll({
+        where: { category }
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async getPaginatedTopics(page, pageSize) {
     const realPage = page - 1;
     const offset = (realPage) * pageSize;
