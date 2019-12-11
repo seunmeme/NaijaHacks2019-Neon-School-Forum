@@ -1,0 +1,12 @@
+.tab{
+  margin-bottom: 50px;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  .pane-container{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+  }
+}
