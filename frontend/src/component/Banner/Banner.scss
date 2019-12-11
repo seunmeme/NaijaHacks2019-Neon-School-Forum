@@ -1,0 +1,27 @@
+.banner{
+  display: flex;
+  justify-content: space-between;
+  .intro{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .intro-content{
+      width: 100%;
+      h1{
+        margin-bottom: 50px;
+        font-weight: 900;
+      }
+      p{
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .banner-img{
+    width: 65%
+  }
+  img{
+    width: 100%;
+  }
+}
