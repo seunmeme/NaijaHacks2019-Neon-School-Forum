@@ -50,6 +50,7 @@ git clone https://github.com/seunmeme/NaijaHacks2019-Neon-School-Forum.git
 | ------------- |----------------------------------------------------------------| ------------------------------|
 | POST          | /api/v1/neonSchoolForum/register                               | Ceate new user         |
 | POST          | /api/v1/neonSchoolForum/login                                  | Users login    |
+| GET           | /api/v1/neonSchoolForum/users/:userId                          | Get a particular user   |
 | POST          | /api/v1/neonSchoolForum/users/:userId/topics                   | Create a new topic    |
 | GET           | /api/v1/neonSchoolForum/topics                                 | Get all topics    |
 | GET           | /api/v1/neonSchoolForum/topics/categories/:category            | Filter topics by category   |

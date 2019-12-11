@@ -86,6 +86,29 @@ class UserController {
     }
   }
 
+  static async getSingleUser(req, res) {
+    const { userId } = req.params;
+
+    if (!Number(userId)) {
+      util.setError(400, 'Please input a valid numeric value');
+      return util.send(res);
+    }
+
+    try {
+      const theUser = await UserService.getUserById( userId );
+
+      if (!theUser) {
+        util.setError(404, `Cannot find User with the id ${userId}`);
+      } else {
+        util.setSuccess(200, 'Found User', theUser);
+      }
+      return util.send(res);
+    } catch (error) {
+      util.setError(404, error.message);
+      return util.send(res);
+    }
+  }
+
 
 }
 

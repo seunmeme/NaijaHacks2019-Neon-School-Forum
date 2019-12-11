@@ -9,6 +9,7 @@ const router = Router();
 
 router.post('/register', UserController.register);
 router.post('/login', UserController.login);
+router.get('/users/:userId', UserController.getSingleUser);
 router.post('/users/:userId/topics', auth, TopicController.createTopic);
 router.get('/topics', TopicController.getAllTopics);
 router.get('/topics/:topicId', TopicController.getSingleTopic);
