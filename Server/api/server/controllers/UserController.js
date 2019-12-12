@@ -1,5 +1,6 @@
 require('dotenv').config();
 import bcrypt from 'bcryptjs';
+import validator from 'validator';
 import jwt from 'jsonwebtoken';
 import UserService from '../services/UserService';
 import Util from '../utils/Utils';
@@ -9,8 +10,16 @@ const util = new Util();
 class UserController {
 
   static async register(req, res) {
-    if (!req.body.username || !req.body.email || !req.body.fullname || !req.body.school || !req.body.class || !req.body.password) {
+    if (!req.body.username || !req.body.email || !req.body.fullname || !req.body.school || !req.body.password) {
       util.setError(400, 'Please provide complete details');
+      return util.send(res);
+    }
+    if (!validator.isEmail(req.body.email)){
+      util.setError(400, 'Kindly input a valid email');
+      return util.send(res);
+    }
+    if (req.body.password.length <= 6) {
+      util.setError(400, 'Password cannot be less than 6 characters');
       return util.send(res);
     }
     const newUser = req.body;

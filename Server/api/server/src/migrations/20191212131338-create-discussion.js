@@ -1,16 +1,16 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Likes', {
+    return queryInterface.createTable('Discussions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      liked: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
+      content: {
+        type: Sequelize.TEXT,
+        allowNull: false,
       },
       topicId: {
         type: Sequelize.INTEGER,
@@ -33,6 +33,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Likes');
+    return queryInterface.dropTable('Discussions');
   }
 };

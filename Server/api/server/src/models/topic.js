@@ -33,6 +33,13 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   Topic.associate = (models) => {
+    Topic.hasMany(models.Discussion, {
+      foreignKey: 'topicId',
+      as: 'discussions',
+    });
+  };
+
+  Topic.associate = (models) => {
     Topic.hasMany(models.Like, {
       foreignKey: 'topicId',
       as: 'likes',

@@ -1,25 +1,25 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Likes', {
+    return queryInterface.createTable('Threads', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      liked: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
+      content: {
+        type: Sequelize.TEXT,
+        allowNull: false,
       },
-      topicId: {
+      discussionId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         onDelete: 'CASCADE',
         references: {
-          model: 'Topics',
+          model: 'Discussions',
           key: 'id',
-          as: 'topicId',
+          as: 'discussionId',
         },
       },
       createdAt: {
@@ -33,6 +33,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Likes');
+    return queryInterface.dropTable('Threads');
   }
 };
