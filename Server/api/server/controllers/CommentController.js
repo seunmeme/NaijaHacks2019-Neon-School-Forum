@@ -7,12 +7,14 @@ const util = new Util();
 class CommentController {
 
     static async addComment(req, res) {
-
+ 
         if ( !req.body.content ) {
             util.setError(400, 'Please provide content');
             return util.send(res);
           }
-          const newComment = {...req.body, topicId: req.params.topicId, };
+          const required = {userId: req.params.userId, topicId: req.params.topicId}
+          const newComment = {...req.body, ...required };
+          console.log(newComment);
           try {
             const createdComment = await CommentService.addComment(newComment);
             const user = req.user
@@ -27,6 +29,23 @@ class CommentController {
     static async getAllComment(req, res) {
         try {
           const allComments = await CommentService.getAllComments();
+          if (allComments.length > 0) {
+            util.setSuccess(200, 'Comments retrieved', allComments);
+          } else {
+            util.setSuccess(200, 'No Comment found');
+          }
+          return util.send(res);
+        } catch (error) {
+          util.setError(400, error.message);
+          return util.send(res);
+        }
+      }
+
+    static async getCommentsByTopic(req, res) {
+      const { topicId } = req.params;
+        try {
+          console.log(topicId);
+          const allComments = await CommentService.getCommentsByTopic(topicId);
           if (allComments.length > 0) {
             util.setSuccess(200, 'Comments retrieved', allComments);
           } else {

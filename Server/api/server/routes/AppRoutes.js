@@ -18,7 +18,9 @@ router.get('/topics/:topicId', TopicController.getSingleTopic);
 router.get('/topics/categories/:category', TopicController.getTopicsByCategory);
 router.get('/topics/:page/:pageSize', TopicController.getPaginatedTopics);
 router.post('/users/:userId/topics/:topicId/comments', auth, CommentController.addComment);
+router.get('/comments/:topicId', CommentController.getCommentsByTopic);
 router.post('/users/:userId/topics/:topicId/likes', auth, LikeController.addLike);
+router.get('/likes/:topicId', LikeController.getLikesByTopic);
 router.post('/users/:userId/topics/:topicId/discussions', auth, DiscussionController.addDiscussion);
 router.post('/users/:userId/topics/:topicId/discussions/:discussionId/threads', auth, ThreadController.addThread);
 

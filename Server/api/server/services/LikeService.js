@@ -9,6 +9,16 @@ class LikeService {
     }
   }
 
+static async getLikesByTopic(topicId) {
+    try {
+      return await database.Like.findAll({
+        where: { topicId }
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async addLike(newLike) {
     try {
       return await database.Like.create(newLike);

@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [2]
       }
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     }
   }, {});
 
@@ -23,6 +27,6 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE',
     });
   };
-  
+
   return Discussion;
 };

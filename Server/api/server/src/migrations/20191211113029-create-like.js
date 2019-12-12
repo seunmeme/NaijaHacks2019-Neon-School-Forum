@@ -12,6 +12,10 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       topicId: {
         type: Sequelize.INTEGER,
         allowNull: false,

@@ -7,6 +7,14 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [2]
       }
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    topicId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     }
   }, {});
   

@@ -12,7 +12,7 @@ class ThreadController {
             util.setError(400, 'Please provide content');
             return util.send(res);
           }
-          const newThread = {...req.body, discussionId: req.params.discussionId, };
+          const newThread = {...req.body, userId: req.params.userId, topicId: req.params.topicId, discussionId: req.params.discussionId };
           try {
             const createdThread = await ThreadService.addThread(newThread);
             const user = req.user

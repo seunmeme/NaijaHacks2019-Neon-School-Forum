@@ -12,6 +12,10 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       topicId: {
         type: Sequelize.INTEGER,
         allowNull: false,

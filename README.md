@@ -57,6 +57,9 @@ git clone https://github.com/seunmeme/NaijaHacks2019-Neon-School-Forum.git
 | GET           | /api/v1/neonSchoolForum/topics/:page/:pageSize                                           | Get Paginated topics    |
 | GET           | /api/v1/neonSchoolForum//topics/:topicId                                                 | Get a particular topic    |
 | POST          | /api/v1/neonSchoolForum/users/:userId/topics/:topicId/comments                           | Add a new comment |
+| GET           | /api/v1/neonSchoolForum/comments/:topicId                                                | Get comments by topicId |
+| POST          | /api/v1/neonSchoolForum/users/:userId/topics/:topicId/likes                              | Post likes |
+| GET           | /api/v1/neonSchoolForum/likes/:topicId                                                   | Get likes by topicId |
 | POST          | /api/v1/neonSchoolForum/users/:userId/topics/:topicId/discussions                        | Add a new discussion |
 | POST          | /api/v1/neonSchoolForum/users/:userId/topics/:topicId/discussions/:discussionId/threads  | Add a new answer |
 
@@ -76,17 +79,26 @@ Using npm
 cd Server
 ```
 ```
-npm i -g nodemon
+npm install
+```
+```
+npm install -g nodemon
 ```
 ```
 npm run dev
 ```
 
-### Start project to test from the browser
+### Start project to test the application
 
 
 Using npm
 
+```
+cd frontend
+```
+```
+npm install
+```
 ```
 npm start
 ```

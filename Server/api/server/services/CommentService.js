@@ -9,6 +9,16 @@ class CommentService {
     }
   }
 
+  static async getCommentsByTopic(topicId) {
+    try {
+      return await database.Comment.findAll({
+        where: { topicId }
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async addComment(newComment) {
     try {
       return await database.Comment.create(newComment);
