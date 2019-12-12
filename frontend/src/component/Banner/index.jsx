@@ -1,6 +1,7 @@
 import React from 'react';
-import SignupModal from '../SignupModal';
+// import SignupModal from '../SignupModal';
 import './Banner.scss';
+import CreateTopicModal from '../CreateTopicModal';
 
 const title = "Introducing a school forum";
 
@@ -12,7 +13,8 @@ const Banner = () => (
       <div className="intro-content">
         <h1>{title}</h1>
         <p>{text}</p>
-        <SignupModal />
+        {/* <SignupModal /> */}
+        <CreateTopicModal />
       </div>
     </div>
     <div className="banner-img">
