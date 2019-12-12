@@ -1,5 +1,6 @@
 import React from 'react';
-import Button from '../Button'
+import { Input } from 'semantic-ui-react'
+import FormModal from '../LoginModal'
 import './Navbar.scss';
 
 const Navbar = () => {
@@ -9,8 +10,12 @@ const Navbar = () => {
         <h3 className="brand">NeonSchoolForum</h3>
       </div>
       <div className="btn-container">
-        <input className="search-input" placeholder="search topics here"/>
-        <Button>Login</Button>
+        <Input
+          icon={{ name: 'search', circular: true, link: true }}
+          placeholder='Search...'
+          className="search-input"
+        />
+        <FormModal />
       </div>
     </div>
   )

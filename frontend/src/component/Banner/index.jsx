@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import SignupModal from '../SignupModal';
 import './Banner.scss';
 
 const title = "Introducing a school forum";
@@ -12,11 +12,14 @@ const Banner = () => (
       <div className="intro-content">
         <h1>{title}</h1>
         <p>{text}</p>
-        <Button color="red">Get Started</Button>
+        <SignupModal />
       </div>
     </div>
     <div className="banner-img">
-      <img src="https://res.cloudinary.com/dx0nauane/image/upload/v1576029770/neon_img_1.jpg" />
+      <img
+        src="https://res.cloudinary.com/dx0nauane/image/upload/v1576029770/neon_img_1.jpg"
+        alt="banner"
+      />
     </div>
   </div>
 );
