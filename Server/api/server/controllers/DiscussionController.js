@@ -24,6 +24,23 @@ class DiscussionController {
           }
       }
 
+    static async getDiscussionsByTopic(req, res) {
+        const { topicId } = req.params;
+          try {
+            console.log(topicId);
+            const allDiscussions = await DiscussionService.getDiscussionsByTopic(topicId);
+            if (allDiscussions.length > 0) {
+              util.setSuccess(200, 'Discussions retrieved', allDiscussions);
+            } else {
+              util.setSuccess(200, 'No Discussion found');
+            }
+            return util.send(res);
+          } catch (error) {
+            util.setError(400, error.message);
+            return util.send(res);
+          }
+        }
+
     static async getAllDiscussion(req, res) {
         try {
           const allDiscussions = await DiscussionService.getAllDiscussions();

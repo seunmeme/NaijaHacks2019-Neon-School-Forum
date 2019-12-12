@@ -61,7 +61,9 @@ git clone https://github.com/seunmeme/NaijaHacks2019-Neon-School-Forum.git
 | POST          | /api/v1/neonSchoolForum/users/:userId/topics/:topicId/likes                              | Post likes |
 | GET           | /api/v1/neonSchoolForum/likes/:topicId                                                   | Get likes by topicId |
 | POST          | /api/v1/neonSchoolForum/users/:userId/topics/:topicId/discussions                        | Add a new discussion |
+| GET           | /api/v1/neonSchoolForum/discussions/:topicId                                             | Get discussions by topicId |
 | POST          | /api/v1/neonSchoolForum/users/:userId/topics/:topicId/discussions/:discussionId/threads  | Add a new answer |
+| GET           | /api/v1/neonSchoolForum/threads/:discussionId                                            | Get answers by discussionId |
 
 ### Install all dependencies
 

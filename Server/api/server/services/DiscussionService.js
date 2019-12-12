@@ -9,6 +9,16 @@ class DiscussionService {
     }
   }
 
+  static async getDiscussionsByTopic(topicId) {
+    try {
+      return await database.Discussion.findAll({
+        where: { topicId }
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async addDiscussion(newDiscussion) {
     try {
       return await database.Discussion.create(newDiscussion);
