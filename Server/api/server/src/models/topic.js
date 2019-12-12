@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        len: [2]
+        len: [2,150]
       }
     },
     category: {
@@ -29,6 +29,13 @@ module.exports = (sequelize, DataTypes) => {
     Topic.hasMany(models.Comment, {
       foreignKey: 'topicId',
       as: 'comments',
+    });
+  };
+
+  Topic.associate = (models) => {
+    Topic.hasMany(models.Discussion, {
+      foreignKey: 'topicId',
+      as: 'discussions',
     });
   };
 

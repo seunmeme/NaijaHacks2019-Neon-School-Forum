@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, DataTypes) => {
-  const Comment = sequelize.define('Comment', {
+  const Discussion = sequelize.define('Discussion', {
     content: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -14,17 +14,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
 
-  Comment.associate = (models) => {
-    Comment.belongsTo(models.Topic, {
+  Discussion.associate = (models) => {
+    Discussion.hasMany(models.Thread, {
+      foreignKey: 'discussionId',
+      as: 'threads',
+    });
+  };
+
+  Discussion.associate = (models) => {
+    Discussion.belongsTo(models.Topic, {
       foreignKey: 'topicId',
       onDelete: 'CASCADE',
     });
   };
- 
-  return Comment;
+
+  return Discussion;
 };
-
-
-
-
-

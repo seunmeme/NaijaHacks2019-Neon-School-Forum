@@ -1,6 +1,6 @@
-
+'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Comment = sequelize.define('Comment', {
+  const Thread = sequelize.define('Thread', {
     content: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -11,20 +11,19 @@ module.exports = (sequelize, DataTypes) => {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    topicId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     }
   }, {});
-
-  Comment.associate = (models) => {
-    Comment.belongsTo(models.Topic, {
-      foreignKey: 'topicId',
+  
+  Thread.associate = (models) => {
+    Thread.belongsTo(models.Discussion, {
+      foreignKey: 'discussionId',
       onDelete: 'CASCADE',
     });
   };
- 
-  return Comment;
+
+  return Thread;
 };
-
-
-
-
-
