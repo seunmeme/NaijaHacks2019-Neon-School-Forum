@@ -12,7 +12,7 @@ class ThreadController {
             util.setError(400, 'Please provide content');
             return util.send(res);
           }
-          const newThread = {...req.body, userId: req.params.userId, topicId: req.params.topicId, discussionId: req.params.discussionId };
+          const newThread = {...req.body, userId: req.params.userId, discussionId: req.params.discussionId, discussionId: req.params.discussionId };
           try {
             const createdThread = await ThreadService.addThread(newThread);
             const user = req.user
@@ -23,6 +23,22 @@ class ThreadController {
             return util.send(res);
           }
       }
+
+      static async getThreadsByDiscussion(req, res) {
+        const { discussionId } = req.params;
+          try {
+            const allThreads = await ThreadService.getThreadsByDiscussion(discussionId);
+            if (allThreads.length > 0) {
+              util.setSuccess(200, 'Threads retrieved', allThreads);
+            } else {
+              util.setSuccess(200, 'No Thread found');
+            }
+            return util.send(res);
+          } catch (error) {
+            util.setError(400, error.message);
+            return util.send(res);
+          }
+        }
 
     static async getAllThread(req, res) {
         try {

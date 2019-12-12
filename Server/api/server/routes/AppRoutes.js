@@ -22,7 +22,9 @@ router.get('/comments/:topicId', CommentController.getCommentsByTopic);
 router.post('/users/:userId/topics/:topicId/likes', auth, LikeController.addLike);
 router.get('/likes/:topicId', LikeController.getLikesByTopic);
 router.post('/users/:userId/topics/:topicId/discussions', auth, DiscussionController.addDiscussion);
+router.get('/discussions/:topicId', DiscussionController.getDiscussionsByTopic);
 router.post('/users/:userId/topics/:topicId/discussions/:discussionId/threads', auth, ThreadController.addThread);
+router.get('/threads/:discussionId', ThreadController.getThreadsByDiscussion);
 
 
 export default router;

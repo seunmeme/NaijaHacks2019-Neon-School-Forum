@@ -17,6 +17,16 @@ class ThreadService {
     }
   }
 
+  static async getThreadsByDiscussion(discussionId) {
+    try {
+      return await database.Thread.findAll({
+        where: { discussionId }
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async updateThread(id, updateThread) {
     try {
       const ThreadToUpdate = await database.Thread.findOne({
