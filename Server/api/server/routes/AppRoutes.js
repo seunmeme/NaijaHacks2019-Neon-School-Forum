@@ -30,7 +30,7 @@ const router = Router();
 
 router.post('/register', UserController.register);
 router.post('/login', UserController.login);
-router.put('/users/:username/imageUpload', upload.single('imageUrl'), UserController.updateUserImage);
+router.put('/users/:username/imageUpload', auth, upload.single('imageUrl'), UserController.updateUserImage);
 router.get('/users/:userId', UserController.getSingleUser);
 router.post('/users/:userId/topics', auth, TopicController.createTopic);
 router.get('/topics', TopicController.getAllTopics);
