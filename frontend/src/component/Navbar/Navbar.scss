@@ -1,12 +1,33 @@
-.navbar{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 0;
-  .brand{
-    color: #a70000;
+
+.nav{
+  width: 100%;
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+    .brand{
+      color: #a70000;
+    }
+    .search-input{
+      margin-right: 20px;
+    }
   }
-  .search-input{
-    margin-right: 20px;
+  
+  .grey-navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    .brand{
+      color: #a70000;
+    }
+    .search-input{
+      margin-right: 20px;
+    }
   }
+}
+
+.grey{
+  background-color: #F0F0F0;
 }

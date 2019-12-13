@@ -1,6 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Home from './pages/Home';
+import SingleTopicDetails from './pages/SingleTopicDetails';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact={true} component={Home} />
+          <Route path={`/topic/:id`} exact={true} component={SingleTopicDetails} />
+          <Route path={'*'} exact={true} component={NotFound} />
         </Switch>
       </BrowserRouter>
     </div>
