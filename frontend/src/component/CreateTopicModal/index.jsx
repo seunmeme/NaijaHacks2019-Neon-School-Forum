@@ -4,7 +4,7 @@ import CreateTopicForm from '../CreateTopicForm';
 // import './CreateTopicModal.scss'
 ;
 const CreateTopicModal = () => (
-  <Modal size="tiny" trigger={<Button color="red">Create Topic</Button>} closeIcon>
+  <Modal size="tiny" trigger={<Button color="red">Get Started</Button>} closeIcon>
     <Header className="grey" content='Create Topic' />
     <Modal.Content>
       <CreateTopicForm />

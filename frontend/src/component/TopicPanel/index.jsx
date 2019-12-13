@@ -29,7 +29,6 @@ const TopicPanel = (props) => {
             <Icon className="cursor" name='share alternate square' />
             <div>
               <Icon className="cursor" name='heart outline' /> <span>2</span>
-
             </div>
             <p>2 mins ago</p>
           </div>

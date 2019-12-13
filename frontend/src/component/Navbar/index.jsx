@@ -1,10 +1,11 @@
 import React from 'react';
-import { Input, Container } from 'semantic-ui-react';
+import { Input, Container, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import FormModal from '../LoginModal';
+import {logout} from '../../utils/authHelper'
 import './Navbar.scss';
 
-const Navbar = ({ singlePage }) => {
+const Navbar = ({ singlePage, isAuthenticated }) => {
   return (
     <div className={ !singlePage? "nav" : "nav grey"}>
       <Container>
@@ -18,7 +19,7 @@ const Navbar = ({ singlePage }) => {
               placeholder='Search...'
               className="search-input"
             />
-            <FormModal />
+            {isAuthenticated ? <Button color="red" onClick={logout}>Logout</Button>:<FormModal />}
           </div>
         </div>
       </Container>
@@ -27,11 +28,13 @@ const Navbar = ({ singlePage }) => {
 }
 
 Navbar.propTypes = {
-  singlePage: PropTypes.bool
+  singlePage: PropTypes.bool,
+  isAuthenticated: PropTypes.bool
 }
 
 Navbar.defaultProps = {
-  singlePage: false
+  singlePage: false,
+  isAuthenticated: false
 }
 
 export default Navbar;

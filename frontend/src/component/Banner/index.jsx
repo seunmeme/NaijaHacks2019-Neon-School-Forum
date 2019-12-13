@@ -7,14 +7,13 @@ const title = "Introducing a school forum";
 
 const text = "Where brilliant minds around the globe can interact and learn together. Create a topic and start discussion from the comfort of your home.";
 
-const Banner = () => (
+const Banner = ({isAuthenticated}) => (
   <div className="banner">
     <div className="intro">
       <div className="intro-content">
         <h1>{title}</h1>
         <p>{text}</p>
-        <SignupModal />
-        <CreateTopicModal />
+        {isAuthenticated ? <CreateTopicModal /> : <SignupModal /> }
       </div>
     </div>
     <div className="banner-img">
