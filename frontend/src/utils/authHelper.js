@@ -1,12 +1,12 @@
 export const setToken = (studentToken) => {
-  localStorage.setItem('student', JSON.stringify(studentToken));
+  localStorage.setItem('token', JSON.stringify(studentToken));
 }
 
-export const studentTokenInLocalStorage = JSON.parse(localStorage.getItem('student'));
+export const studentTokenInLocalStorage = JSON.parse(localStorage.getItem('token'));
 
 export const configUser = (studentTokenInLocalStorage) => {
   if(studentTokenInLocalStorage) {
-    return {headers: { 'auth-token': getUser.accessToken}}
+    return {headers: { 'auth-token': studentTokenInLocalStorage.accessToken}}
   }
 };
 
