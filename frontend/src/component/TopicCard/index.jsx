@@ -1,8 +1,10 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import './TopicCard.scss';
 
-const TopicCard = () => (
-  <div className="card">
+const TopicCard = (props) => {
+  return (
+  <div className="card" onClick={() => props.history.push(`/topic/${1}`)}>
     <h1>Motion</h1>
     <p>I want to know more about the types of motion, any comment is welcome and how things are done in relation to what we are....</p>
     <div className="card-content">
@@ -19,6 +21,8 @@ const TopicCard = () => (
       </div>
     </div>
   </div>
-)
+  )
+}
 
-export default TopicCard;
+
+export default withRouter(TopicCard);

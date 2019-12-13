@@ -1,0 +1,90 @@
+.topic-panel{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+  .user-section{
+    width: 30%;
+    text-align: center;
+    position: relative;
+    .edit-icon{
+      position: absolute;
+      right: 110px;
+      top: -3px;
+      border-radius: 50%;
+      border: 1px solid rgb(196, 196, 196);
+      padding: 5px;
+      background-color: rgb(236, 236, 236);
+      cursor: pointer;
+    }
+    img{
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .username{
+      font-weight: 600;
+    }
+    p{
+      margin: 5px 0
+    }
+  }
+  .topic-section{
+    position: relative;
+    width: 70%;
+    min-height: 250px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    .topic-area{
+      padding: 25px;
+      margin-bottom: 20px;
+    }
+    .special-icon{
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      position: absolute;
+      bottom: 0;
+      padding: 10px 0;
+      color: #aa0000;
+      .cursor{
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.comment-panel{
+  margin: 20px 0;
+  text-align: right;
+  color: red;
+  font-style: italic;
+  p{
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+  .comment-section{
+    color: grey;
+    max-height: 70px;
+    overflow-y: auto;
+    p{
+      margin-bottom: 3px;
+    }
+    span{
+      font-weight: 600;
+    }
+  }
+}
+
+.discussion-panel{
+  margin-top: 30px;
+  h3{
+    color: #d61010;
+    margin-bottom: 20px;
+  }
+  .custom-btn{
+    margin: 20px 0;
+    width: 100px !important;
+  }
+}

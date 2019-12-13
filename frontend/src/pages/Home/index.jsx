@@ -6,11 +6,13 @@ import TabbedPanel from '../../component/TabbedPanel';
 
 const Home = () => {
   return (
-    <Container>
+    <>
       <Navbar />
-      <Banner />
-      <TabbedPanel />
-    </Container>
+      <Container>
+        <Banner />
+        <TabbedPanel />
+      </Container>
+    </>
   )
 }
 
