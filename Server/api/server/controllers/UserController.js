@@ -85,11 +85,11 @@ class UserController {
     }
   }
 
-  static async updateUser(req, res) {
+  static async updateUserImage(req, res) {
     const alteredUser = req.body;
     const { username } = req.params;
     try {
-      const updateUser = await UserService.updateUser(username, alteredUser);
+      const updateUser = await UserService.updateUser(username, {...alteredUser, imageUrl: req.file.path});
       if (!updateUser) {
         util.setError(404, `Cannot find user with the username: ${username}`);
       } else {
