@@ -28,9 +28,8 @@ Postgres (with Sequelize), Express, ReactJs, Node.
 improve education in Nigeria.
 - A good resource for students to find where to learn and who to learn from.
 
-# Top-level directory layout
+# Links to Web Services and Application
 
-## Links
 [Api Endpoint BaseUrl](http://212.71.235.50/)
 
 # Top-level directory layout
