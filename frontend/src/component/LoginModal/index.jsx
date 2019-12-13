@@ -5,7 +5,7 @@ import './LoginModal.scss'
 ;
 const LoginModal = () => (
   <Modal size="mini" trigger={<Button color="red">Login</Button>} closeIcon>
-    <Header className="grey" content='Login' />
+    <Header className="ui" content='Login' />
     <Modal.Content>
       <LoginForm />
     </Modal.Content>
