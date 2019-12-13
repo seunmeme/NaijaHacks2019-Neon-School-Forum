@@ -57,7 +57,7 @@ class UserController {
         const theUser = await UserService.getSingleUser(User.username);
 
         if(!theUser){
-            util.setError(401, 'Username is not valid!');
+            util.setError(401, 'User does not exist! Kindly register and try again');
         }
 
         const validPass = bcrypt.compareSync(User.password, theUser.password);
