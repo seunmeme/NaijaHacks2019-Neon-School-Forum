@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { actionTypes } from '../actionTypes';
 import { setToken, configUser } from '../../utils/authHelper';
 
@@ -8,7 +8,7 @@ export const authRequest = {
   type: actionTypes.AUTH_REQUEST_LOADING
 }
 
-export const loginStudent = (user) => {
+export const loginStudent = (user, closeLoginModal) => {
   console.log('action')
   return (dispatch) => {
     dispatch(authRequest);
@@ -19,6 +19,8 @@ export const loginStudent = (user) => {
           payload: response.data,
         })
         setToken(response.data)
+        closeLoginModal()
+        toast.success("Success Notification")
       })
       .catch((error) => {
         if(error.response) {

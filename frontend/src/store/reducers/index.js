@@ -1,7 +1,12 @@
 import { actionTypes } from '../actionTypes';
+import {token} from '../../utils/authHelper';
 
-const initialState = {
-  
+console.log(token, 'token')
+const initialState = token ? {
+  isAuthenticated: true,
+  loading: false,
+  ...token
+} : {
   isAuthenticated: false,
   loading: false,
   errorMessage: null

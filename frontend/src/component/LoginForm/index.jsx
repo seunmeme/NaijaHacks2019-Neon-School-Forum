@@ -33,17 +33,18 @@ class LoginForm extends Component{
       this.setState(() => ({ error }));
     } 
     else {
-      loginStudent(user);
+      loginStudent(user, () => {
+        if(this.props.students.isAuthenticated){
+          this.props.closeModal()
+        }
+      });
     }
   }
 
   render(){
-    // console.log(this.state.user)
     const {error} = this.state;
     const {loading, errorMessage, isAuthenticated} = this.props.students;
-    // if(error =={})
     return(
-
       <Form
         onSubmit={this.handleSubmit}
         loading={loading && true}
