@@ -1,6 +1,7 @@
 .DS_STORE
 Server/node_modules
 Server/.env
+Server/package-lock.json
 scripts/flow/*/.flowconfig
 package-lock.json
 *~
