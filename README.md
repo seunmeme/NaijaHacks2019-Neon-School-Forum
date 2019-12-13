@@ -30,6 +30,11 @@ improve education in Nigeria.
 
 # Top-level directory layout
 
+## Links
+[Api Endpoint BaseUrl](http://212.71.235.50/)
+
+# Top-level directory layout
+
     .
     ├── frontend                        # Front End
     ├── Server                          # Backend
