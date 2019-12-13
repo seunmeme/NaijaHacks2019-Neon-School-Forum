@@ -24,9 +24,16 @@ class UserController {
     }
     const newUser = req.body;
     const theUser = await UserService.getSingleUser(newUser.username);
+    const theUserByEmail = await UserService.getUserByEmail(newUser.email);
 
     if(theUser){
         util.setError(400, 'Username already exist!');
+        return util.send(res);
+    }
+
+    if(theUserByEmail){
+        util.setError(400, 'Email already exist!');
+        return util.send(res);
     }
 
     try {

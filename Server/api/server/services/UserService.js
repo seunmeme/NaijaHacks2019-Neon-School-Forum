@@ -46,6 +46,18 @@ class UserService {
     }
   }
 
+  static async getUserByEmail(email) {
+    try {
+      const theUser = await database.User.findOne({
+        where: { email }
+      });
+
+      return theUser;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async getUserById(id) {
     try {
       const theUser = await database.User.findOne({
