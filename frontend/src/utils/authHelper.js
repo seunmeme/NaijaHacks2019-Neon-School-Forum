@@ -4,9 +4,10 @@ export const setToken = (studentToken) => {
 
 export const token = JSON.parse(localStorage.getItem('token'));
 
-export const configUser = (token) => {
+export const configUser = () => {
+  console.log(token)
   if(token) {
-    return {headers: { 'auth-token': token.accessToken}}
+    return {headers: { 'auth-token': token.data}}
   }
 };
 
