@@ -12,8 +12,9 @@ class DiscussionController {
             util.setError(400, 'Please provide content');
             return util.send(res);
           }
-          const newDiscussion = {...req.body, userId: req.user.id, topicId: req.params.topicId, };
+          const newDiscussion = {...req.body, userId: req.user.id, topicId: req.params.topicId };
           try {
+            console.log(newDiscussion);
             const createdDiscussion = await DiscussionService.addDiscussion(newDiscussion);
             util.setSuccess(201, 'Discussion Added!', {createdDiscussion});
             return util.send(res);
