@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        len: [2]
+        len: [2, 150]
       }
     },
     userId: {
@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     topicId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    discussionId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     }

@@ -12,11 +12,10 @@ class LikeController {
             util.setError(400, 'Please provide liked');
             return util.send(res);
           }
-          const newLike = {...req.body, userId: req.params.userId, topicId: req.params.topicId };
+          const newLike = {...req.body, userId: req.user.id, topicId: req.params.topicId };
           try {
             const createdLike = await LikeService.addLike(newLike);
-            const user = req.user
-            util.setSuccess(201, 'Like Added!', {createdLike, user});
+            util.setSuccess(201, 'Like Added!', {createdLike});
             return util.send(res);
           } catch (error) {
             util.setError(400, error.message);
