@@ -11,7 +11,6 @@ class LoginModal extends Component {
   handleClose = () => this.setState({ modalOpen: false })
 
   render(){
-    console.log(this.state.modalOpen, 'modal state')
     return(
       <Modal
         size="mini"

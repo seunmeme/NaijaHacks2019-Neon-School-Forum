@@ -47,6 +47,9 @@ const signupValidator = (user) => {
   if (validator.isEmpty(user.password)) {
     error.password = 'Password field is required';
   } 
+  if (validator.isEmpty(user.school)) {
+    error.school = 'Name of school field is required';
+  } 
   if (validator.isEmpty(user.repeatPassword)) {
     error.repeatPassword = 'Repeat Password field is required';
   }
