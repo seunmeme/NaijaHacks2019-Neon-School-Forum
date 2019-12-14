@@ -64,6 +64,16 @@ export const topics = (state = {loading: false, isCreated: false}, action) => {
         isCreated: false,
         loading: false
       }
+    case actionTypes.GET_TOPIC_BY_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        ...action.payload
+      }
+    case actionTypes.GET_TOPIC_BY_CATEGORY_FAILURE:
+      return {
+        ...state,
+        errorMessage: action.payload
+      }
     default:
       return state;
   }
