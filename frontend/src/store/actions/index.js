@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { toast } from "react-toastify";
 import { actionTypes } from '../actionTypes';
-import { setToken, configUser } from '../../utils/authHelper';
+import { setToken, configUser, token } from '../../utils/authHelper';
 
 
 export const authRequest = {
@@ -147,7 +147,6 @@ export const getTopicComments = (topicId) => {
     }
 }
 
-
 export const getDiscussions = (topicId) => {
   return (dispatch) => {
     return axios.get(`/api/v1/neonSchoolForum/discussions/${topicId}`)
@@ -166,6 +165,25 @@ export const getDiscussions = (topicId) => {
             payload: error.response.data.message
           })
         }
+      })
+    }
+}
+
+export const postComment = (topicId, comment) => {
+  return (dispatch) => {
+    return axios.post(`/api/v1/neonSchoolForum/users/topics/${topicId}/comments`, {
+      content: comment
+    }, {
+      headers: {
+        'auth-token': token.data
+      }
+    })
+    .then((response) => {
+      dispatch(getTopicComments(topicId));
+        toast.success(response.data.message)
+      })
+      .catch((error) => {
+        toast.error(error.response.data.message)
       })
     }
 }
