@@ -10,10 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     content: {
       type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        len: [2,150]
-      }
+      allowNull: false
     },
     category: {
       type: DataTypes.STRING,

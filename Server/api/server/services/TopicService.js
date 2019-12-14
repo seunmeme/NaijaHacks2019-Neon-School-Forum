@@ -14,7 +14,13 @@ class TopicService {
   static async getTopicsByCategory(category) {
     try {
       return await database.Topic.findAll({
-        where: { category }
+        where: { category },
+        attributes: ['title', 'content', 'userId'],
+        include: [
+          {
+            model: database.User,
+            attributes: ['imageUrl', 'school', 'fullname']
+          }]
       });
     } catch (error) {
       throw error;

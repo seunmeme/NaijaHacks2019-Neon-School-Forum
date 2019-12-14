@@ -12,10 +12,10 @@ class TopicController {
             util.setError(400, 'Please provide complete details');
             return util.send(res);
           }
-          const newTopic = {...req.body, userId: req.params.userId};
+          const user = req.user
+          const newTopic = {...req.body, userId: req.user.id};
           try {
             const createdTopic = await TopicService.addTopic(newTopic);
-            const user = req.user
             util.setSuccess(201, 'Topic Added!', {createdTopic, user});
             return util.send(res);
           } catch (error) {

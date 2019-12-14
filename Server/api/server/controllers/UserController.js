@@ -68,9 +68,8 @@ class UserController {
         }
 
         const validPass = bcrypt.compareSync(User.password, theUser.password);
-
         if(!validPass){
-            util.setError(401, 'Password is wrong!');
+          util.setError(401, 'Password is wrong!');
         }else{
           const token = jwt.sign({theUser}, process.env.SECRET_KEY);
             res.header('auth-token', token)
