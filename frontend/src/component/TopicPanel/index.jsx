@@ -1,18 +1,36 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { ToastContainer } from 'react-toastify';
 import { connect } from 'react-redux';
-import { Button, Icon, Input } from 'semantic-ui-react'
+import { Button, Icon, Input, TextArea, Form } from 'semantic-ui-react'
 import DiscussionCard from '../DiscussionCard'
-import { getSingleTopic, getTopicComments, getDiscussions } from '../../store/actions'
+import { getSingleTopic, getTopicComments, postComment, getDiscussions } from '../../store/actions'
 import imageUrl from '../../constants/index'
 import './TopicPanel.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 class TopicPanel extends Component {
+
+  state = {
+    comment: ""
+  }
 
   componentDidMount(){
     this.props.getSingleTopic(this.props.topicId)
     this.props.getTopicComments(this.props.topicId)
     this.props.getDiscussions(this.props.topicId)
+  }
+
+  handleComment = (e, data) => this.setState({ comment: data.value})
+
+  handleCommentSubmit = async() => {
+    const { comment } = this.state;
+    const { topicId, postComment } = this.props;
+
+    if(comment.length) {
+      await postComment(topicId, comment);
+      this.setState({comment: "Comment here..."})
+    }
   }
  
   render(){
@@ -23,6 +41,7 @@ class TopicPanel extends Component {
     return (
       <>
         <div className="topic-panel">
+          <ToastContainer />
           <div className="user-section">
             <div className="edit-icon">
               <Icon name='edit' color="red" />
@@ -51,13 +70,14 @@ class TopicPanel extends Component {
         </div>
         <div className="comment-panel">
             <p>add comment</p>
-            <Input className="custom-input" type='text' placeholder='Search...' action>
-              <input />
-              <Button type='submit'>Comment</Button>
-              <Button className="close-btn"><><Icon name="window close" />Close</></Button>
-            </Input><div className="comment-section">
-            {comments.data && comments.data.map((comment, index) => <p key={`comment${index}`}><span>@tobi</span>{` - ${comment.content}`}</p>)}
-          </div>
+             <Form onSubmit={this.handleCommentSubmit}>
+                <TextArea placeholder='Comment here...'  onChange={this.handleComment} required/>
+                <Button type='submit'>Comment</Button>
+                <Button className="close-btn"><><Icon name="window close" />Close</></Button>
+            </Form>
+            <div className="comment-section">
+              {comments.data && comments.data.map((comment, index) => <p key={`comment${index}`}><span>@tobi</span>{` - ${comment.content}`}</p>)}
+            </div>
         </div>
         <div  className="discussion-panel">
           <h3>Discussions</h3>
@@ -91,4 +111,4 @@ const mapStateToProps = state => {
   return {singleTopic, comments, discussions}
 }
 
-export default connect(mapStateToProps, { getSingleTopic, getTopicComments, getDiscussions })(TopicPanel);
+export default connect(mapStateToProps, { getSingleTopic, getTopicComments, postComment, getDiscussions })(TopicPanel);
