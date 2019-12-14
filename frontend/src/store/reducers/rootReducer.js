@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux';
 
 import {
-  students
+  students,
+  topics,
 } from './';
 
 export default combineReducers({
-  students
+  students,
+  topics,
 });

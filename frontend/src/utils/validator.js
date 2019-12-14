@@ -14,6 +14,22 @@ const loginValidator = (user) => {
   return error;
 }
 
+const topicValidator = (topic) => {
+  const error = {};
+
+  if (validator.isEmpty(topic.title)) {
+    error.title = 'Title field is required';
+  }
+  if (validator.isEmpty(topic.content)) {
+    error.content = 'Context field is required';
+  }
+  if (validator.isEmpty(topic.category)) {
+    error.category = 'Select a category'
+  }
+
+  return error;
+}
+
 const signupValidator = (user) => {
   const error = {};
 
@@ -43,4 +59,5 @@ const signupValidator = (user) => {
 export {
   loginValidator,
   signupValidator,
+  topicValidator,
 }; 

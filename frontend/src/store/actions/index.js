@@ -9,7 +9,6 @@ export const authRequest = {
 }
 
 export const loginStudent = (user, closeLoginModal) => {
-  console.log('action')
   return (dispatch) => {
     dispatch(authRequest);
     return axios.post("/api/v1/neonSchoolForum/login", user)
@@ -26,6 +25,34 @@ export const loginStudent = (user, closeLoginModal) => {
         if(error.response) {
           dispatch({
             type: actionTypes.LOGIN_STUDENT_FAILURE,
+            payload: error.response.data.message
+          })
+        }
+      })
+    }
+}
+
+
+export const createTopicRequestLoading = {
+  type: actionTypes.CREATE_TOPIC_REQUEST_LOADING
+}
+
+export const createTopic = (topic, closeTopicModal) => {
+  return (dispatch) => {
+    dispatch(createTopicRequestLoading);
+    return axios.post("/api/v1/neonSchoolForum/users/topics", topic, configUser())
+    .then((response) => {
+        dispatch({
+          type: actionTypes.CREATE_TOPIC_SUCCESS,
+          payload: response.data,
+        })
+        toast.success("Success Notification")
+        closeTopicModal()
+      })
+      .catch((error) => {
+        if(error.response) {
+          dispatch({
+            type: actionTypes.CREATE_TOPIC_FAILURE,
             payload: error.response.data.message
           })
         }

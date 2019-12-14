@@ -1,7 +1,6 @@
 import { actionTypes } from '../actionTypes';
 import {token} from '../../utils/authHelper';
 
-console.log(token, 'token')
 const initialState = token ? {
   isAuthenticated: true,
   loading: false,
@@ -37,6 +36,32 @@ export const students = (state = initialState, action) => {
         ...state,
         errorMessage: action.payload,
         isAuthenticated: false,
+        loading: false
+      }
+    default:
+      return state;
+  }
+};
+
+export const topics = (state = {loading: false, isCreated: false}, action) => {
+  switch(action.type) {
+    case actionTypes.CREATE_TOPIC_REQUEST_LOADING:
+      return {
+        ...state,
+        loading: true
+      }
+    case actionTypes.CREATE_TOPIC_SUCCESS:
+      return {
+        ...state,
+        ...action.payload,
+        isCreated: true,
+        loading: false
+      }
+    case actionTypes.CREATE_TOPIC_FAILURE:
+      return {
+        ...state,
+        errorMessage: action.payload,
+        isCreated: false,
         loading: false
       }
     default:
