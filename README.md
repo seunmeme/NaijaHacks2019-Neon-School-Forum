@@ -30,7 +30,7 @@ improve education in Nigeria.
 
 # Links to Web Services and Application
 
-[Application Landing Page](http://3.226.63.91/)
+[Application Landing Page](http://neon-school-forum.s3-website-us-east-1.amazonaws.com)
 
 [Api Endpoint BaseUrl](http://3.226.63.91/)
 
