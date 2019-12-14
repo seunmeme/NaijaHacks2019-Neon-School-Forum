@@ -30,7 +30,7 @@ improve education in Nigeria.
 
 # Links to Web Services and Application
 
-[Api Endpoint BaseUrl](http://212.71.235.50/)
+[Api Endpoint BaseUrl](http://3.226.63.91/)
 
 # Top-level directory layout
 
