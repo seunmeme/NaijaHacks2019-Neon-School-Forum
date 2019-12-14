@@ -13,7 +13,7 @@ class CreateTopicModal extends Component{
     return(
       <Modal
           size="tiny"
-          trigger={<Button onClick={this.handleOpen} color="red">Get Started</Button>}
+          trigger={<Button onClick={this.handleOpen} color="red">Create Topic</Button>}
           closeIcon
           open={this.state.modalOpen}
           onClose={this.handleClose}

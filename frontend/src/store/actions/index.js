@@ -32,6 +32,30 @@ export const loginStudent = (user, closeLoginModal) => {
     }
 }
 
+export const signupStudent = (user, closeSignupModal) => {
+  return (dispatch) => {
+    dispatch(authRequest);
+    return axios.post("/api/v1/neonSchoolForum/register", user)
+    .then((response) => {
+        dispatch({
+          type: actionTypes.SIGNUP_STUDENT_SUCCESS,
+          payload: response.data,
+        })
+        setToken(response.data)
+        closeSignupModal()
+        toast.success("Success Notification")
+      })
+      .catch((error) => {
+        if(error.response) {
+          dispatch({
+            type: actionTypes.SIGNUP_STUDENT_FAILURE,
+            payload: error.response.data.message
+          })
+        }
+      })
+    }
+}
+
 
 export const createTopicRequestLoading = {
   type: actionTypes.CREATE_TOPIC_REQUEST_LOADING

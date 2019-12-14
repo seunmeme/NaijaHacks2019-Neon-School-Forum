@@ -24,6 +24,13 @@ export const students = (state = initialState, action) => {
         isAuthenticated: true,
         loading: false
       }
+    case actionTypes.SIGNUP_STUDENT_SUCCESS:
+      return {
+        ...state,
+        ...action.payload,
+        isAuthenticated: true,
+        loading: false
+      }
     case actionTypes.LOGIN_STUDENT_SUCCESS:
       return {
         ...state,
@@ -32,6 +39,13 @@ export const students = (state = initialState, action) => {
         loading: false
       }
     case actionTypes.LOGIN_STUDENT_FAILURE:
+      return {
+        ...state,
+        errorMessage: action.payload,
+        isAuthenticated: false,
+        loading: false
+      }
+    case actionTypes.SIGNUP_STUDENT_FAILURE:
       return {
         ...state,
         errorMessage: action.payload,
