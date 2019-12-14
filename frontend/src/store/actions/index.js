@@ -131,9 +131,30 @@ export const getTopicComments = (topicId) => {
   return (dispatch) => {
     return axios.get(`/api/v1/neonSchoolForum/comments/${topicId}`)
     .then((response) => {
-        console.log(response, 'response')
         dispatch({
           type: actionTypes.GET_TOPIC_COMMENT_SUCCESS,
+          payload: response.data,
+        })
+      })
+      .catch((error) => {
+        if(error.response) {
+          dispatch({
+            type: actionTypes.GET_TOPIC_COMMENT_FAILURE,
+            payload: error.response.data.message
+          })
+        }
+      })
+    }
+}
+
+
+export const getDiscussions = (topicId) => {
+  return (dispatch) => {
+    return axios.get(`/api/v1/neonSchoolForum/discussions/${topicId}`)
+    .then((response) => {
+        console.log(response, 'response')
+        dispatch({
+          type: actionTypes.GET_DISCUSSIONS_SUCCESS,
           payload: response.data,
         })
       })
@@ -141,7 +162,7 @@ export const getTopicComments = (topicId) => {
         console.log(error.response)
         if(error.response) {
           dispatch({
-            type: actionTypes.GET_TOPIC_COMMENT_FAILURE,
+            type: actionTypes.GET_DISCUSSIONS_FAILURE,
             payload: error.response.data.message
           })
         }

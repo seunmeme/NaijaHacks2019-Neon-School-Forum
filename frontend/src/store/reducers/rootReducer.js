@@ -5,6 +5,7 @@ import {
   topics,
   singleTopic,
   comments,
+  discussions,
 } from './';
 
 export default combineReducers({
@@ -12,4 +13,5 @@ export default combineReducers({
   topics,
   singleTopic,
   comments,
+  discussions,
 });

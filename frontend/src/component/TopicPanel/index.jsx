@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button, Icon, Input } from 'semantic-ui-react'
 import DiscussionCard from '../DiscussionCard'
-import { getSingleTopic, getTopicComments } from '../../store/actions'
+import { getSingleTopic, getTopicComments, getDiscussions } from '../../store/actions'
 import imageUrl from '../../constants/index'
 import './TopicPanel.scss';
 
@@ -12,13 +12,14 @@ class TopicPanel extends Component {
   componentDidMount(){
     this.props.getSingleTopic(this.props.topicId)
     this.props.getTopicComments(this.props.topicId)
+    this.props.getDiscussions(this.props.topicId)
   }
  
   render(){
     // console.log(this.props.comments, 'comments')
     // const {data: {title, content, User: {imageUrl, school, username} } } = this.props.singleTopic;
-    const {singleTopic: { data }, comments }= this.props;
-    // console.log(comments, 'comments')
+    const {singleTopic: { data }, comments, discussions }= this.props;
+    console.log(discussions, 'discussions')
     return (
       <>
         <div className="topic-panel">
@@ -65,8 +66,7 @@ class TopicPanel extends Component {
             <Button.Content visible>Join</Button.Content>
             <Button.Content hidden>Discussion</Button.Content>
           </Button>
-          <DiscussionCard />
-          <DiscussionCard />
+          {discussions.data && discussions.data.map((discussion, index) =>  <DiscussionCard key={`dis${index}`} discussion={discussion} />)}
         </div>
       </>
     )
@@ -87,8 +87,8 @@ TopicPanel.defaultProps = {
 }
 
 const mapStateToProps = state => {
-  const {singleTopic, comments} = state;
-  return {singleTopic, comments}
+  const {singleTopic, comments, discussions} = state;
+  return {singleTopic, comments, discussions}
 }
 
-export default connect(mapStateToProps, { getSingleTopic, getTopicComments })(TopicPanel);
+export default connect(mapStateToProps, { getSingleTopic, getTopicComments, getDiscussions })(TopicPanel);
