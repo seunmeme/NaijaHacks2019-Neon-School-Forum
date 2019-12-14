@@ -32,7 +32,7 @@ router.post('/register', UserController.register);
 router.post('/login', UserController.login);
 router.put('/users/:username/imageUpload', auth, upload.single('imageUrl'), UserController.updateUserImage);
 router.get('/users/:userId', UserController.getSingleUser);
-router.post('/users/:userId/topics', auth, TopicController.createTopic);
+router.post('/users/topics', auth, TopicController.createTopic);
 router.get('/topics', TopicController.getAllTopics);
 router.get('/topics/:topicId', TopicController.getSingleTopic);
 router.get('/topics/categories/:category', TopicController.getTopicsByCategory);
