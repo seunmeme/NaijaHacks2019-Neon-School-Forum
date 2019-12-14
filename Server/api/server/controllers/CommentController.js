@@ -7,18 +7,18 @@ const util = new Util();
 class CommentController {
 
     static async addComment(req, res) {
- 
+
         if ( !req.body.content ) {
             util.setError(400, 'Please provide content');
             return util.send(res);
           }
-          const required = {userId: req.params.userId, topicId: req.params.topicId}
+          const required = {userId: req.user.id, topicId: req.params.topicId}
           const newComment = {...req.body, ...required };
           console.log(newComment);
           try {
             const createdComment = await CommentService.addComment(newComment);
             const user = req.user
-            util.setSuccess(201, 'Comment Added!', {createdComment, user});
+            util.setSuccess(201, 'Comment Added!', {createdComment});
             return util.send(res);
           } catch (error) {
             util.setError(400, error.message);

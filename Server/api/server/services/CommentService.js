@@ -20,6 +20,7 @@ class CommentService {
   }
 
   static async addComment(newComment) {
+    console.log(newComment, '====>>><<<>>>')
     try {
       return await database.Comment.create(newComment);
     } catch (error) {

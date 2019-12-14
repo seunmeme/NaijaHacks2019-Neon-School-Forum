@@ -15,7 +15,7 @@ class TopicService {
     try {
       return await database.Topic.findAll({
         where: { category },
-        attributes: ['title', 'content', 'userId'],
+        attributes: ['id', 'title', 'content', 'userId'],
         include: [
           {
             model: database.User,
@@ -71,6 +71,11 @@ class TopicService {
     try {
       const theTopic = await database.Topic.findOne({
         where: { id },
+        attributes: ['id', 'title', 'content', 'userId'],
+        include: [{
+          model: database.User,
+          attributes: ['username', 'school']
+        }]
       });
 
       return theTopic;
