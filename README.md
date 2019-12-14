@@ -30,6 +30,8 @@ improve education in Nigeria.
 
 # Links to Web Services and Application
 
+[Application Landing Page](http://3.226.63.91/)
+
 [Api Endpoint BaseUrl](http://3.226.63.91/)
 
 # Top-level directory layout
