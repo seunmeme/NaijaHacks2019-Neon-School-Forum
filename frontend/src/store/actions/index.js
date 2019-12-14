@@ -59,3 +59,29 @@ export const createTopic = (topic, closeTopicModal) => {
       })
     }
 }
+
+
+export const getTopicsByCategory = (category) => {
+  return (dispatch) => {
+    return axios.get(`/api/v1/neonSchoolForum/topics/categories/${category}`)
+    .then((response) => {
+        // console.log(response, 'response')
+        dispatch({
+          type: actionTypes.GET_TOPIC_BY_CATEGORY_SUCCESS,
+          payload: {
+            [category]: response.data,
+          }
+        })
+      })
+      .catch((error) => {
+        // console.log(error.response)
+        if(error.response) {
+          dispatch({
+            type: actionTypes.GET_TOPIC_BY_CATEGORY_FAILURE,
+            payload: error.response.data.message
+          })
+        }
+      })
+    }
+}
+
