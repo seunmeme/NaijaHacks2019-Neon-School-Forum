@@ -12,7 +12,15 @@ class DiscussionService {
   static async getDiscussionsByTopic(topicId) {
     try {
       return await database.Discussion.findAll({
-        where: { topicId }
+        where: { topicId },
+        include: [{
+          model: database.User,
+          attributes: ['id', 'imageUrl', 'username']
+        }],
+        include: [{
+          model: database.Thread,
+          attributes: ['id', 'content']
+        }]
       });
     } catch (error) {
       throw error;

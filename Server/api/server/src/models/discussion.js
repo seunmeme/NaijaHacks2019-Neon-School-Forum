@@ -28,5 +28,12 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
+  Discussion.associate = (models) => {
+    Discussion.belongsTo(models.User, {
+      foreignKey: 'userId',
+      onDelete: 'CASCADE',
+    });
+  };
+
   return Discussion;
 };

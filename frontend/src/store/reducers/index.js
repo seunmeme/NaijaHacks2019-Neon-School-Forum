@@ -126,3 +126,20 @@ export const comments = (state = {}, action) => {
       return state;
   }
 };
+
+export const discussions = (state = {}, action) => {
+  switch(action.type) {
+    case actionTypes.GET_DISCUSSIONS_SUCCESS:
+      return {
+        ...state,
+        ...action.payload
+      }
+    case actionTypes.GET_DISCUSSIONS_FAILURE:
+      return {
+        ...state,
+        errorMessage: action.payload,
+      }
+    default:
+      return state;
+  }
+};
