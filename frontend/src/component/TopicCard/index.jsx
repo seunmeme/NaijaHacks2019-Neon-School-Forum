@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import ImageUrl from '../../constants';
 import './TopicCard.scss';
 
 const TopicCard = (props) => {
@@ -17,7 +18,7 @@ const TopicCard = (props) => {
       <img
         alt="user profile"
         className="card-avatar"
-        src={imageUrl ? imageUrl : "https://res.cloudinary.com/dx0nauane/image/upload/v1576315771/placeholder_image.jpg"} />
+        src={imageUrl ? imageUrl : ImageUrl.placeholderImageUrl} />
       <div className="card-info">
         <div className="card-details">
           <h2>{fullname}</h2>

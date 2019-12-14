@@ -78,3 +78,37 @@ export const topics = (state = {loading: false, isCreated: false}, action) => {
       return state;
   }
 };
+
+export const singleTopic = (state = {}, action) => {
+  switch(action.type) {
+    case actionTypes.GET_SINGLE_TOPIC_SUCCESS:
+      return {
+        ...state,
+        ...action.payload
+      }
+    case actionTypes.GET_SINGLE_TOPIC_FAILURE:
+      return {
+        ...state,
+        errorMessage: action.payload,
+      }
+    default:
+      return state;
+  }
+};
+
+export const comments = (state = {}, action) => {
+  switch(action.type) {
+    case actionTypes.GET_TOPIC_COMMENT_SUCCESS:
+      return {
+        ...state,
+        ...action.payload
+      }
+    case actionTypes.GET_TOPIC_COMMENT_FAILURE:
+      return {
+        ...state,
+        errorMessage: action.payload,
+      }
+    default:
+      return state;
+  }
+};

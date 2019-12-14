@@ -65,7 +65,6 @@ export const getTopicsByCategory = (category) => {
   return (dispatch) => {
     return axios.get(`/api/v1/neonSchoolForum/topics/categories/${category}`)
     .then((response) => {
-        // console.log(response, 'response')
         dispatch({
           type: actionTypes.GET_TOPIC_BY_CATEGORY_SUCCESS,
           payload: {
@@ -74,10 +73,51 @@ export const getTopicsByCategory = (category) => {
         })
       })
       .catch((error) => {
-        // console.log(error.response)
         if(error.response) {
           dispatch({
             type: actionTypes.GET_TOPIC_BY_CATEGORY_FAILURE,
+            payload: error.response.data.message
+          })
+        }
+      })
+    }
+}
+
+export const getSingleTopic = (topicId) => {
+  return (dispatch) => {
+    return axios.get(`/api/v1/neonSchoolForum/topics/${topicId}`)
+    .then((response) => {
+        dispatch({
+          type: actionTypes.GET_SINGLE_TOPIC_SUCCESS,
+          payload: response.data,
+        })
+      })
+      .catch((error) => {
+        if(error.response) {
+          dispatch({
+            type: actionTypes.GET_SINGLE_TOPIC_FAILURE,
+            payload: error.response.data.message
+          })
+        }
+      })
+    }
+}
+
+export const getTopicComments = (topicId) => {
+  return (dispatch) => {
+    return axios.get(`/api/v1/neonSchoolForum/comments/${topicId}`)
+    .then((response) => {
+        console.log(response, 'response')
+        dispatch({
+          type: actionTypes.GET_TOPIC_COMMENT_SUCCESS,
+          payload: response.data,
+        })
+      })
+      .catch((error) => {
+        console.log(error.response)
+        if(error.response) {
+          dispatch({
+            type: actionTypes.GET_TOPIC_COMMENT_FAILURE,
             payload: error.response.data.message
           })
         }
