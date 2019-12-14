@@ -12,11 +12,10 @@ class ThreadController {
             util.setError(400, 'Please provide content');
             return util.send(res);
           }
-          const newThread = {...req.body, userId: req.params.userId, discussionId: req.params.discussionId, discussionId: req.params.discussionId };
+          const newThread = {...req.body, userId: req.user.id, topicId: req.params.topicId, discussionId: req.params.discussionId };
           try {
             const createdThread = await ThreadService.addThread(newThread);
-            const user = req.user
-            util.setSuccess(201, 'Thread Added!', {createdThread, user});
+            util.setSuccess(201, 'Thread Added!', {createdThread});
             return util.send(res);
           } catch (error) {
             util.setError(400, error.message);
